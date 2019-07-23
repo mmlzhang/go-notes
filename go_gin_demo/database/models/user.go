@@ -1,0 +1,29 @@
+package models
+
+import "gin-rest-gorm-rbac-sample/lib/common"
+
+type User struct {
+	ID int64
+	Name string
+	Age int
+	Email string
+	Password string
+}
+
+func  (User) TableName() string {
+	return "user"
+}
+
+func (u User) Serialize() common.JSON{
+	return common.JSON{
+		"id": u.ID,
+		"name": u.Name,
+		"email": u.Email,
+	}
+}
+
+func (u *User) Read(m common.JSON) {
+	u.ID = m["id"].(int64)
+	u.Name = m["name"].(string)
+	u.Email = m["email"].(string)
+}
