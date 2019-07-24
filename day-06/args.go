@@ -7,9 +7,10 @@ import (
 
 func main() {
 	var s, sep string
+	fmt.Println(os.Args)
 	for i := 1; i < len(os.Args); i ++ {
 		s += sep + os.Args[i]
-		sep = " "
+		sep = "-"
 	}
 	fmt.Println(s)
 }
