@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"fmt"
+	"text/template/parse"
 )
 
 func main() {
@@ -13,4 +14,8 @@ func main() {
 		sep = "-"
 	}
 	fmt.Println(s)
+
+	for flag == true {
+
+	}
 }
