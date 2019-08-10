@@ -57,5 +57,4 @@ func main() {
 	a := "abc"
 	b = str2runes(a)
 	fmt.Println(b)
-
 }
