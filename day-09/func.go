@@ -66,4 +66,42 @@ func main() {
 		fmt.Println("i = ", i)
 		defer func(i int) { println(i)}(i)
 	}
+	/*
+	第一种防范是 在循环体内部在定义一个局部变量,这样每次迭代 defer 语句的闭包函数捕获的都是不同的变量,
+	这些变量的只对应迭代的值,第二种方法是讲地带变量通过闭包函数的参数传入,defer语句会马上对调用参数求值,两种方式都是可以工作的,不过一般来说,在for循环内部执行defer语句并不是一个好习惯
+	go语言中,如果以切片为参数调用函数时,有时候会给人一种参数采用了引用的方式的假象,因为在被调用函数的内部可以修改传入的切片元素,
+	其实,任何可以通过函数参数修改调用参数的情形,都是应为函数参数中显示或隐式传入了指针参数,函数参数传值的规范
+	准确说是只针对数据结构中固定部分传值.
+	*/
+
+	x := []int{1000, 100, 222}
+	twice(x)
+	fmt.Println(x)
+
+	y := IntSliceHeader{Data: []int{11, 22, 33}, Len:3, Cap:111}
+	twice2(y)
+
+	fmt.Println(y)
+	/*
+	因为切片中的底层数组部分是通过隐式指针传递
+	*/
+
+}
+
+func twice(x []int) {
+	for i := range x {
+		x[i] *= 2
+	}
+}
+
+type IntSliceHeader struct {
+	Data []int
+	Len int
+	Cap int
+}
+
+func twice2(x IntSliceHeader) {
+	for i := 0; i < x.Len; i ++ {
+		x.Data[i] *= 2
+	}
 }
