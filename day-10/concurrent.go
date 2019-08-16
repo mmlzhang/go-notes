@@ -1,5 +1,6 @@
 package main
 
+import "fmt"
 
 /*
 CSP  Communication Sequential Process  通讯顺序进程
@@ -13,3 +14,18 @@ go 并发方案
 　不要通过共享内存来通信，⽽应通过通信来共享内存
 */
 
+func main() {
+	done := make(chan int, 10)
+
+	for i := 0; i < cap(done); i++ {
+		go func(i int) {
+			fmt.Println("hello, world", i)
+			done <- 1
+		}(i)
+	}
+
+	for i := 0; i < cap(done); i++ {
+		<- done
+	}
+
+}
