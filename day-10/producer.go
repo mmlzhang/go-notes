@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_learn/day-10/pubsub"
+	"go-notes/day-10/pubsub"
 	"time"
 	"strings"
 )

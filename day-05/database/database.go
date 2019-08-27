@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	"go_learn/day-05/database/models"
+	"go-notes/day-05/database/models"
 )
 
 func Initialize() (*gorm.DB, error) {

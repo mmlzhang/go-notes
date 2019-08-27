@@ -3,11 +3,11 @@ package middleware
 import (
 	"fmt"
 	"github.com/pkg/errors"
-	"go_learn/day-05/lib/common"
+	"go-notes/day-05/lib/common"
 	"io/ioutil"
 	"os"
 	"github.com/gin-gonic/gin"
-	"go_learn/day-05/database/models"
+	"go-notes/day-05/database/models"
 )
 
 var secretKey []byte

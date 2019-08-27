@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"go_learn/day-05/database"
-	"go_learn/day-05/middleware"
+	"go-notes/day-05/database"
+	"go-notes/day-05/middleware"
 
-	"go_learn/day-05/api"
+	"go-notes/day-05/api"
 )
 
 func main() {
